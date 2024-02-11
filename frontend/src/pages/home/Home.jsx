@@ -8,16 +8,15 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import PlayingNow from "./playingNow/PlayingNow";
 
 const Home = () => {
-  const navigate = useNavigate();
-  const jwtToken = Cookies.get("jwtToken");
-
   return (
     <>
       <Header />
       <div className="homePage">
         <HeroBanner />
+        <PlayingNow />
         <Trending />
         <Popular />
         <TopRated />

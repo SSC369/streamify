@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import DetailsBanner from "./detailsBanner/DetailsBanner";
 import Cast from "./cast/Cast";
@@ -19,17 +19,27 @@ const Details = () => {
   );
 
   return (
-    <>
+    <div className="detailsContainer">
       <Header />
-      <div>
+      <div className="movieDetails">
         <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
         <Cast data={credits?.cast} loading={creditsLoading} />
         <VideoSection loading={loading} data={data} />
         <Similar mediaType={mediaType} id={id} />
         <Recommendation mediaType={mediaType} id={id} />
       </div>
+      <div className={`bookButtonContainer`}>
+        <button type="button">
+          <Link
+            style={{ textDecoration: "none", color: "inherit" }}
+            to="/booktickets"
+          >
+            Book Tickets
+          </Link>
+        </button>
+      </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

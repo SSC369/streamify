@@ -10,7 +10,7 @@ const Recommendation = ({ mediaType, id }) => {
 
   return (
     <>
-      {data ? (
+      {data?.total_pages > 0 ? (
         <Carousel
           title="Recommendations"
           data={data}
@@ -18,7 +18,7 @@ const Recommendation = ({ mediaType, id }) => {
           endpoint={mediaType}
         />
       ) : (
-        <div className="title">No Recommendations</div>
+        <div className="emptyTitle">No Recommendations {":("}</div>
       )}
     </>
   );
